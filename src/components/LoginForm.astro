@@ -5,7 +5,7 @@ import { Icon } from 'astro-icon'
 
 <form class="login-form space-content" method="post">
   <Notification type="warning">
-    <Icon pack="majesticons" name="emoji-sad-line" /><p class="size-12">Incorrect email and password combination. Please try again.</p>
+    <Icon pack="majesticons" name="emoji-sad-line" /><p class="size-12">Usuario o contraeña incorrecta, intenta nuevamente!</p>
   </Notification>
   <div class="login-form__controls">
     <label for="email">E-mail</label>
@@ -16,11 +16,15 @@ import { Icon } from 'astro-icon'
     <input type="password" name="password" required>
   </div>
   <button class="button color-secondary behavior-full" type="submit">Entrar</button>
-  <label class="checkbox">
-    <input type="checkbox" name="remember">
-    <span>Recuerdame</span>
-  </label>
-  <a href="#">Olvide mi contraseña?</a>
+ <div>
+       <a href="#">Olvide mi contraseña?</a>
+    </div>
+  
+  <div>
+    <small>¿No tienes una cuenta? </small><a href="/registro">Registrarse</a>
+  </div>
+  
+  
 </form> 
 
 <script>
@@ -37,7 +41,7 @@ import { Icon } from 'astro-icon'
   submitButton.addEventListener('click', event => {
     event.preventDefault()
 
-    if (emailInput.value === 'admin@astro.demo' && passwordInput.value === 'Astronaut570') {
+    if (emailInput.value === 'demo' && passwordInput.value === 'demo') {
       localStorage.setItem('isLoggedIn', 'true')
       window.location.href = '/'
     } else {

@@ -6,7 +6,7 @@ import { Icon } from 'astro-icon'
 ---
 
 <LoginLayout title="Login">
-  <section class="bg-neutral-100">
+  <section class="bg-neutral-90">
     <div class="login">
       <div class="login__inner reveal h-screen">
         <div class="inner__brand">
@@ -23,17 +23,12 @@ import { Icon } from 'astro-icon'
           </div>
         </div>
         <div class="inner__form space-content">
-          <Notification>
-            <Icon pack="majesticons" name="information-circle-line" /><p class="size-14">Log in using <strong>admin@astro.demo</strong> and <strong>Astronaut570</strong>.</p>          
-          </Notification>
           <div class="space-content">
-            <h1>Ingreso</h1>
+            <h3>Ingreso</h3>
             <LoginForm />
           </div>
         </div>
-        <div class="login__footer text-neutral-700">
-          <p><em>Build fast dashboards, faster.</em></p>
-        </div>
+
       </div>
       <div class="login__background h-screen" />
     </div>
@@ -73,7 +68,7 @@ import { Icon } from 'astro-icon'
     }
 
     .brand__logo {
-      max-width: 150px;
+      max-width: 100px;
     }
 
     .brand__text {

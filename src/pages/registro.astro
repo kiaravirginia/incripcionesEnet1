@@ -1,0 +1,61 @@
+
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+---
+
+
+  <section>
+<form id="form">
+  <label>Usuario: 
+    <input name="usuarioNombre" autocomplete="none" required />
+</label>
+<br />
+  <label>Clave:
+     <input name="clave" type="password" autocomplete="current-password" required />
+    </label><br />
+  <label>Rol:
+    <select name="rol">
+      <option value="admin">Admin</option>
+      <option value="docente">Docente</option>
+    </select>
+  </label><br />
+  <label>Correo: <input name="correo" type="email" required /></label><br />
+  <button type="submit">Registrar</button>
+</form>
+
+<p id="mensaje"></p>
+</section>
+
+
+<script type="module">
+    const form = document.querySelector("#form");
+    const mensaje = document.querySelector("#mensaje");
+  
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      const data = Object.fromEntries(new FormData(form));
+      data.action = "registrarUsuario";
+  
+      try {
+        const res = await fetch("/api/proxy", {
+          method: "POST",
+          body: JSON.stringify(data),
+        });
+  
+        const text = await res.text();
+  
+        try {
+          const json = JSON.parse(text);
+          mensaje.textContent = json.ok ? json.mensaje : json.error || "Error desconocido";
+        } catch (error) {
+          mensaje.textContent = "Respuesta no es JSON. Ver consola.";
+          console.error("Contenido recibido:", text);
+        }
+      } catch (error) {
+        mensaje.textContent = "Error al enviar datos: " + error.message;
+        console.error(error);
+      }
+    });
+  </script>
+  
