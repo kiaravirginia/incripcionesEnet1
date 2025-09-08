@@ -1,26 +1,26 @@
 
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro';
+
 ---
 
 
   <section>
 <form id="form">
-  <label>Usuario: 
-    <input name="usuarioNombre" autocomplete="none" required />
+  <label class="titulo">Usuario: 
+    <input  class="caja" ="usuarioNombre" autocomplete="none" required />
 </label>
 <br />
-  <label>Clave:
-     <input name="clave" type="password" autocomplete="current-password" required />
+  <label class="titulo" >Clave:
+     <input class="caja" name="clave" type="password" autocomplete="current-password" required />
     </label><br />
-  <label>Rol:
-    <select name="rol">
+  <label class="titulo">Rol:
+    <select name="rol" class="caja">
       <option value="admin">Admin</option>
       <option value="docente">Docente</option>
     </select>
   </label><br />
-  <label>Correo: <input name="correo" type="email" required /></label><br />
-  <button type="submit">Registrar</button>
+  <label class="titulo" >Correo: <input  class="caja" name="correo" type="email" required /></label><br />
+  <button type="submit" class="boton">Registrar</button>
 </form>
 
 <p id="mensaje"></p>
@@ -58,4 +58,29 @@ import DefaultLayout from '../layouts/DefaultLayout.astro';
       }
     });
   </script>
+  <style>
+    .caja{
+      background-color:cadetblue;
+      margin: 5px;
+      padding: 5px;
+      border-color: gray;
+      border-radius: 4px;
+      border: none;
+    }
+    .titulo{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: small;
+      font-variant: small-caps;
+      color: blue;     
+    }
+
+    .boton{
+      margin: 5px;
+      padding: 10px;
+      background-color: orange;
+      color: black;
+      border: none;
+      border-radius: 4px;      
+    }
+  </style>
   
